@@ -1,0 +1,56 @@
+﻿@model IEnumerable<GestiónDeProyectos.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Listado de Tareas del Departamento: @( ((Proyecto)ViewData["proy"]).Titulo) </h2>
+
+<p>
+    <a asp-action="Create">Crear nueva Tarea</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.GradoDeAvance)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proyecto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GradoDeAvance)        
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proyecto.Titulo)
+
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.codTarea">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.codTarea">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.codTarea">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

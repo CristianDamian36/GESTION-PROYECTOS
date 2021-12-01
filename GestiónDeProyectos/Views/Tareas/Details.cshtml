@@ -1,0 +1,42 @@
+﻿@model GestiónDeProyectos.Models.Tarea
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles de la Tarea</h2>
+
+<div>
+    <h4>Tarea</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GradoDeAvance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GradoDeAvance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Proyecto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Proyecto.Titulo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.codTarea">Editar</a> |
+    <a asp-action="Index">Volver al listado</a>
+</div>
